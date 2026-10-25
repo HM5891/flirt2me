@@ -1,0 +1,28 @@
+:root{--bg:#0A0407;--card:#1A0A12;--pink:#FF2E93;--rose:#E9B9A3;--text:#F4E9E4;--muted:#B9A6A0;--line:rgba(233,185,163,.25)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{background:linear-gradient(#3A0A24,#16050D);border-bottom:1px solid var(--line);padding:22px 16px}
+.wrap{max-width:780px;margin:0 auto;padding:0 16px}
+header .wrap{padding:0}
+.logo{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:28px;color:var(--rose);text-decoration:none}
+.logo b{color:var(--pink);text-shadow:0 0 12px var(--pink)}
+nav{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px 16px;font-size:14px}
+nav a{color:var(--rose)}
+main{padding:24px 0 48px}
+h1{font-family:Georgia,"Times New Roman",serif;color:var(--rose);font-size:30px;line-height:1.2;margin:0 0 4px}
+h2{color:var(--rose);font-size:20px;margin:32px 0 8px;border-top:1px solid var(--line);padding-top:20px}
+h3{font-size:16px;margin:18px 0 4px}
+a{color:var(--pink)}
+.muted{color:var(--muted);font-size:14px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:16px 0}
+ul,ol{padding-left:22px}
+li{margin:4px 0}
+table{width:100%;border-collapse:collapse;font-size:14px;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--card);color:var(--rose)}
+.btn{display:inline-block;background:var(--pink);color:#fff;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:30px;margin:6px 6px 0 0}
+.cards{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:20px}
+.cards a{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;text-decoration:none;color:var(--text)}
+.cards a strong{color:var(--rose);display:block;margin-bottom:4px}
+footer{border-top:1px solid var(--line);padding:20px 0 32px;color:var(--muted);font-size:13px}
