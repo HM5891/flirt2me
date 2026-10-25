@@ -26,3 +26,5 @@ th{background:var(--card);color:var(--rose)}
 .cards a{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;text-decoration:none;color:var(--text)}
 .cards a strong{color:var(--rose);display:block;margin-bottom:4px}
 footer{border-top:1px solid var(--line);padding:20px 0 32px;color:var(--muted);font-size:13px}
+.logo{display:inline-flex;align-items:center;gap:10px}
+.logo img{width:40px;height:auto}
