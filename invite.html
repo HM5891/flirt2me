@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You're invited – Flirt2Me</title>
+<meta name="description" content="Your friend invited you to Flirt2Me. Download free and you both get free coins. Adults 18+ only.">
+<meta name="theme-color" content="#0A0407">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Flirt2Me">
+<meta property="og:title" content="You're invited to Flirt2Me 💕">
+<meta property="og:description" content="Meet new people on 1:1 video chat. Use my invite code and we both get free coins! 18+ only.">
+<meta property="og:url" content="https://hm5891.github.io/flirt2me/invite.html">
+<meta property="og:image" content="https://hm5891.github.io/flirt2me/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<style>
+.hero{text-align:center;padding:12px 0 4px}
+.hero .emoji{font-size:56px;line-height:1}
+.code{display:inline-block;margin:14px 0 6px;padding:12px 26px;border:1.5px solid var(--rose);border-radius:16px;background:var(--card);
+  font:700 34px Georgia,"Times New Roman",serif;letter-spacing:8px;color:var(--rose)}
+.big{display:block;text-align:center;font-size:18px;padding:16px 22px;margin:18px auto 8px;max-width:420px}
+.copy{background:none;border:1.5px solid var(--pink);color:var(--pink);font-weight:700;border-radius:30px;padding:8px 18px;font-size:14px;cursor:pointer}
+.ok{color:#22C55E;font-size:14px;min-height:20px}
+.steps li{margin:8px 0}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="index.html"><img src="mark.png" alt="" width="40" height="37"><span>Flirt<b>2</b>Me</span></a></div></header>
+<main><div class="wrap">
+
+<div class="hero">
+  <div class="emoji">💕</div>
+  <h1 id="title">You're invited to Flirt2Me</h1>
+  <p class="muted">Meet new people face to face on 1:1 video chat. Free Android app for adults 18+.</p>
+  <div id="withCode" hidden>
+    <p style="margin:12px 0 0">Your friend's invite code:</p>
+    <div class="code" id="code">——</div>
+    <div><button class="copy" id="copyBtn" type="button">Copy code</button></div>
+    <div class="ok" id="copied"></div>
+    <p>Enter it in the app and <b>you both get <span id="reward">50</span> free coins</b> after your first video chat 🎁</p>
+  </div>
+</div>
+
+<a class="btn big" id="dl" href="https://github.com/HM5891/flirt2me/releases/latest/download/Flirt2Me.apk">⬇ Download Flirt2Me (free)</a>
+<p class="muted" style="text-align:center">Phone more than 6–7 years old? Use the <a href="https://github.com/HM5891/flirt2me/releases/latest/download/Flirt2Me-older-phones.apk">version for older phones</a>.</p>
+
+<div class="box">
+<strong>3 quick steps</strong>
+<ol class="steps">
+<li><b>Download</b> with the button above. <span id="autoCopyNote" hidden>Your invite code is copied for you.</span></li>
+<li><b>Install:</b> open <b>Flirt2Me.apk</b> from your notifications or Downloads. If Android asks, tap <b>Settings → Allow from this source</b>, then <b>Install</b>. If Play Protect warns you, tap <b>More details → Install anyway</b> (the app is not from the Play Store).</li>
+<li id="step3"><b>Sign in</b> with Google, then go to <b>Me → "Have an invite code? Enter it"</b> and paste the code.</li>
+</ol>
+</div>
+
+<p class="muted">Only download Flirt2Me from this website. By installing, you confirm you are 18 or older and agree to the <a href="terms.html">Terms of Service</a>, <a href="privacy.html">Privacy Policy</a> and <a href="community.html">Community Rules</a>.</p>
+
+</div></main>
+<footer><div class="wrap">© 2026 Flirt2Me · <a href="download.html">Download</a> · <a href="pricing.html">Pricing</a> · <a href="contact.html">Contact Us</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · 18+ only</div></footer>
+<script>
+(function () {
+  var p = new URLSearchParams(location.search);
+  var code = (p.get('c') || p.get('code') || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 12);
+  var reward = (p.get('r') || '').replace(/[^0-9]/g, '').slice(0, 4);
+  if (reward) document.getElementById('reward').textContent = reward;
+  if (!code) {
+    document.getElementById('step3').innerHTML = '<b>Sign in</b> with Google and tap the big pink button to meet someone new.';
+    return;
+  }
+  document.getElementById('withCode').hidden = false;
+  document.getElementById('autoCopyNote').hidden = false;
+  document.getElementById('code').textContent = code;
+  document.getElementById('title').textContent = 'Your friend invited you 💕';
+
+  function copy(then) {
+    var done = function () {
+      document.getElementById('copied').textContent = '✓ Code copied — paste it in the app';
+      if (then) then();
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done, function () { fallback(); done(); });
+    } else { fallback(); done(); }
+  }
+  function fallback() {
+    var t = document.createElement('textarea');
+    t.value = code; t.setAttribute('readonly', ''); t.style.position = 'absolute'; t.style.left = '-9999px';
+    document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(t);
+  }
+  document.getElementById('copyBtn').addEventListener('click', function () { copy(); });
+  // the download button also copies the code, so the app can fill it in after install
+  var dl = document.getElementById('dl');
+  dl.addEventListener('click', function (e) {
+    e.preventDefault();
+    var href = dl.href;
+    copy(function () { location.href = href; });
+  });
+})();
+</script>
+</body>
+</html>
